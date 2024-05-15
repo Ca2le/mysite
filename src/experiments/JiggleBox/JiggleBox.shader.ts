@@ -1,4 +1,4 @@
-import { BaseTexture, Geometry, Mesh, Program, Shader, Texture } from "pixi.js";
+import { Geometry, Mesh, Program, Shader, Texture } from "pixi.js";
 
 interface IUniforms {
   u_time: { value: number };

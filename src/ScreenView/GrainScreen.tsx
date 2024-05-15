@@ -1,5 +1,4 @@
-import { Container, Stage, useTick } from "@pixi/react";
-import { useEffect, useRef } from "react";
+import {  Stage } from "@pixi/react";
 import { store, useAppSelector } from "../redux/index.slices";
 import Grains from "./Grains";
 import { Provider } from "react-redux";

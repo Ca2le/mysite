@@ -1,5 +1,5 @@
 import { DisplayObject, Mesh, Container as PixiContainer } from "pixi.js";
-import { Container, useApp, useTick } from "@pixi/react";
+import { useApp, useTick } from "@pixi/react";
 import { useEffect, useState } from "react";
 import JiggleBox from "../experiments/JiggleBox/JiggleBox.shader";
 

@@ -17,10 +17,14 @@ import {
   TitleContainer,
 } from "./SkillSection.styles";
 import { Margin } from "../AboutSection/AboutPage.styles";
-import { Stage, useApp } from "@pixi/react";
+import { Stage } from "@pixi/react";
 import JiggleBoxComponent from "./JiggleBox";
 import { useAppSelector } from "../redux/index.slices";
 import TextBox from "./TextBox";
+
+interface props {
+  onClick: () => void;
+}
 
 function SamplePrevArrow({ onClick }: props) {
   return <LeftArrow className="arrow-left" onClick={onClick} />;
@@ -51,13 +55,16 @@ const SkillsPage = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    //@ts-expect-error: Temporary workaround
     nextArrow: <SampleNextArrow />,
+    //@ts-expect-error: Temporary workaround
     prevArrow: <SamplePrevArrow />,
     beforeChange: () => {
-      setIsSliding(true)
+      setIsSliding(true);
     },
+    //@ts-expect-error: Temporary workaround
     afterChange: (index) => {
-      setIsSliding(false)
+      setIsSliding(false);
       setCurrentCube(index);
     },
   };
@@ -68,7 +75,12 @@ const SkillsPage = () => {
     options: { backgroundAlpha: 0 },
   };
 
-  const paths = ["/assets/front.png", "/assets/back.png", "/assets/usef.png", "/assets/game102.png"];
+  const paths = [
+    "/assets/front.png",
+    "/assets/back.png",
+    "/assets/usef.png",
+    "/assets/game102.png",
+  ];
 
   return (
     <Container>
@@ -80,33 +92,36 @@ const SkillsPage = () => {
         ¨
         <SliderContainer>
           <Slider {...settings}>
-            {numberOfCards.map((e, i) => {
-              return (
-                <div>
-                  <CardFrame>
-                    <Card>
-                      <BackgroundFiller opacity={0.4} />
-                      <Content>
-                        <StageContainer>
-                          <Stage {...stageConfig}>
-                            <JiggleBoxComponent
-                              jiggleOnce={currentCube === i}
-                              imgPath={paths[i]}
-                              x={10}
-                              y={0}
-                              w={isPhone ? 180 : 230}
-                              h={isPhone ? 209 : 259}
-                              isSliding={isSliding}
-                            />
-                          </Stage>
-                        </StageContainer>
-                        <TextBox stage={i} />
-                      </Content>
-                    </Card>
-                  </CardFrame>
-                </div>
-              );
-            })}
+            {
+              //@ts-expect-error: Unused variable in map function
+              numberOfCards.map((e, i) => {
+                return (
+                  <div>
+                    <CardFrame>
+                      <Card>
+                        <BackgroundFiller opacity={0.4} />
+                        <Content>
+                          <StageContainer>
+                            <Stage {...stageConfig}>
+                              <JiggleBoxComponent
+                                jiggleOnce={currentCube === i}
+                                imgPath={paths[i]}
+                                x={10}
+                                y={0}
+                                w={isPhone ? 180 : 230}
+                                h={isPhone ? 209 : 259}
+                                isSliding={isSliding}
+                              />
+                            </Stage>
+                          </StageContainer>
+                          <TextBox stage={i} />
+                        </Content>
+                      </Card>
+                    </CardFrame>
+                  </div>
+                );
+              })
+            }
           </Slider>
         </SliderContainer>
       </Margin>

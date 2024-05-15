@@ -3,7 +3,6 @@ import { useAppSelector } from "../redux/index.slices";
 import { Container as PixiContainer, DisplayObject, Mesh, Graphics as PixiGraphic } from "pixi.js";
 import { Container, Graphics, useApp, useTick } from "@pixi/react";
 import createWaveMesh from "../shaders/waveShader";
-import Grains from "../ScreenView/Grains";
 
 const Sea = () => {
   const { width, height, unitHeight } = useAppSelector((state) => state.windowSize);

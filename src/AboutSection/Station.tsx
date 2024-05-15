@@ -8,7 +8,6 @@ const Station = () => {
   const [assetLoaded, setAssetLoaded] = useState(false);
 
   const [pipes, setPipes] = useState<Texture<Resource>>();
-  const [hello, setHello] = useState<Texture<Resource>>()
   const { width } = useAppSelector((state) => state.windowSize);
 
   useEffect(() => {
@@ -22,7 +21,6 @@ const Station = () => {
       ) as Texture<Resource>;
       console.log(hello)
       setPipes(pipes);
-      setHello(hello)
       setAssetLoaded(true);
     })();
   }, [assetLoaded]);
