@@ -1,0 +1,28 @@
+.separator {
+    position: relative;
+    height: 100px; /* Adjust height as needed */
+  }
+  
+  .separator::before,
+  .separator::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+  }
+  
+  .separator::before {
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    left: -25px; /* Adjust position as needed */
+    background-color: #ffffff; /* Adjust color as needed */
+  }
+  
+  .separator::after {
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    right: -25px; /* Adjust position as needed */
+    background-color: #ffffff; /* Adjust color as needed */
+  }
+  
