@@ -1278,7 +1278,7 @@ void main()
   }
 `,Rj=ve.div`
 @media (max-width: 600px) {
-    overflow-x: hidden;
+    overflow: hidden;
   }
 
 `,kj=ve.div`
